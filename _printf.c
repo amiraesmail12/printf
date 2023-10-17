@@ -10,7 +10,10 @@
 int _printf(const char *format, ...)
 {
 	int i;
+	int flags;
+	int width;
 	int precision;
+	int size;
 	int printed = 0;
 	int printed_chars = 0;
 	int buff_ind = 0;
@@ -32,9 +35,13 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buff_ind);
+			flags = get_flags(format, &i);
+			width = get_width(format, &i, list);
 			precision = get_precision(format, &i, list);
+			size = get_size(format, &i);
 			i++;
-			printed = handl_print(format, &i, list, buffer, precision);
+			printed = handl_print(format, &i, list, buffer,
+					flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;

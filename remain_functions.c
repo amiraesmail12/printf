@@ -7,11 +7,14 @@
  * @precision: int
  * Return: int
  */
-int print_char(va_list types, char buffer[], int precision)
+int print_char(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
+
+
 	char c = va_arg(types, int);
 
-	return (handle_char(c, buffer, precision));
+	return (handle_char(c, buffer, flags, width, precision, size));
 }
 /**
  * handle_char - fun
@@ -20,9 +23,16 @@ int print_char(va_list types, char buffer[], int precision)
  * @precision: int
  * Return: int
 */
-int handle_char(char c, char buffer[], int precision)
+int handle_char(char c, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	int i = 0;
+
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
 
 	(void)(precision);
 	buffer[i++] = c;
@@ -36,10 +46,17 @@ int handle_char(char c, char buffer[], int precision)
  * @precision: int
  * Return:int
  */
-int print_string(va_list types, char buffer[], int precision)
+int print_string(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	int length = 0;
 	char *str = va_arg(types, char *);
+
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
 
 	(void)(buffer);
 	(void)(precision);
@@ -65,8 +82,15 @@ int print_string(va_list types, char buffer[], int precision)
  * @precision: int
  * Return:in
 */
-int print_percent(va_list types, char *buffer, int precision)
+int print_percent(va_list types, char *buffer,
+		int flags, int width, int precision, int size)
 {
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
+
 	(void)(types);
 	(void)(precision);
 	(void)(buffer);
@@ -79,13 +103,19 @@ int print_percent(va_list types, char *buffer, int precision)
  * @precision: P
  * Return: int
  */
-int print_int(va_list types, char buffer[], int precision)
+int print_int(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	int is_negative = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
-
+	
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
 
 	if (n == 0)
 		buffer[i--] = '0';
@@ -107,5 +137,6 @@ int print_int(va_list types, char buffer[], int precision)
 
 	i++;
 
-	return (write_number(is_negative, i, buffer, precision));
+	return (write_number(is_negative, i, buffer,
+				flags, width, precision, size));
 }
