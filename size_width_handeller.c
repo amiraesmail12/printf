@@ -2,8 +2,8 @@
 /**
  * get_width - calculate the width to be printed.
  * @format: formated string
- * @args: list of arguments ot be printed.
- * list: list of args
+ * @list: list of args
+ * @ind: index to be print
  *
  * Return: the width.
  */
@@ -54,7 +54,7 @@ else if (format[curr_ind] == 'h')
 
 if (size == 0)
 	*ind = curr_ind - 1;
-else 
+else
 	*ind = curr_ind;
 
 

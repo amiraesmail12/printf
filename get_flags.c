@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * get_flag - calculate active flages 
+ * get_flags - calculate active flages
  * based on a formatted string and an index.
  * @format: Formatted string
- * @i: take a parameter.
+ * @ind: take a parameter.
  *
  * Return: flag
  */
@@ -29,7 +29,7 @@ for (curr_ind = *ind + 1; format[curr_ind] != '\0'; curr_ind++)
 
 	}
 	if (FLAGS_CH[i] == 0)
-			break;
+		break;
 }
 
 

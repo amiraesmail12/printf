@@ -26,25 +26,25 @@ UNUSED(size);
 UNUSED(precision);
 
 n = va_arg(types, unsigned int);
-m = 2147483648; 
+m = 2147483648;
 a[0] = n / m;
 
 for (i = 1; i < 32; i++)
+{
+	m /= 2;
+	a[i] = (n / m) % 2;
+}
+for (i = 0, sum = 0, counter = 0; i < 32; i++)
+{
+	sum += a[i];
+	if (sum || i == 31)
 	{
-		m /= 2;
-		a[i] = (n / m) % 2;
-	}
-	for (i = 0, sum = 0, counter = 0; i < 32; i++)
-	{
-		sum += a[i];
-		if (sum || i == 31)
-		{
-			char z = '0' + a[i];
+		char z = '0' + a[i];
 
-			write(1, &z, 1);
-			counter++;
-		}
+		write(1, &z, 1);
+		counter++;
 	}
+}
 return (counter);
 }
 
@@ -62,7 +62,7 @@ return (counter);
  * @flags: active flags
  * @width: width
  * @precision: Precision specification
- * @size: Size 
+ * @size: Size
  *
  * Return: Number of chars printed.
  */

@@ -4,7 +4,10 @@
  * print_char - fun
  * @types: list
  * @buffer: buffer
- * @precision: int
+ * @flags: flag
+ * @width: width
+ * @precision: P
+ * @size: size
  * Return: int
  */
 int print_char(va_list types, char buffer[],
@@ -20,7 +23,10 @@ int print_char(va_list types, char buffer[],
  * handle_char - fun
  * @c: char
  * @buffer: buffer
- * @precision: int
+ * @flags: flag
+ * @width: width
+ * @precision: P
+ * @size: size
  * Return: int
 */
 int handle_char(char c, char buffer[],
@@ -43,7 +49,10 @@ int handle_char(char c, char buffer[],
  * print_string - fun
  * @types: list
  * @buffer: buffer
- * @precision: int
+ * @flags: flag
+ * @width: width
+ * @precision: P
+ * @size: size
  * Return:int
  */
 int print_string(va_list types, char buffer[],
@@ -79,7 +88,11 @@ int print_string(va_list types, char buffer[],
  * print_percent - fun
  * @types: list
  * @buffer: buffer
- * @precision: int
+ * @flags: flag
+ * @width: width
+ * @precision: P
+ * @size: size
+
  * Return:in
 */
 int print_percent(va_list types, char *buffer,
@@ -100,7 +113,10 @@ int print_percent(va_list types, char *buffer,
  * print_int - fun
  * @types: lidt
  * @buffer: buffer
+ * @flags: flag
+ * @width: width
  * @precision: P
+ * @size: size
  * Return: int
  */
 int print_int(va_list types, char buffer[],
@@ -110,7 +126,7 @@ int print_int(va_list types, char buffer[],
 	int is_negative = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
-	
+
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);

@@ -9,14 +9,8 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
-	int flags;
-	int width;
-	int precision;
-	int size;
-	int printed = 0;
-	int printed_chars = 0;
-	int buff_ind = 0;
+	int i, flags, width, precision, size;
+	int printed = 0, printed_chars = 0, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
@@ -39,7 +33,7 @@ int _printf(const char *format, ...)
 			width = get_width(format, &i, list);
 			precision = get_precision(format, &i, list);
 			size = get_size(format, &i);
-			i++;
+			++i;
 			printed = handl_print(format, &i, list, buffer,
 					flags, width, precision, size);
 			if (printed == -1)

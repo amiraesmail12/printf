@@ -4,7 +4,10 @@
  * @is_negative: List
  * @ind: c
  * @buffer: buffer
+ * @flags: flag
+ * @width: width
  * @precision: precision specifier
+ * @size: size
  * Return: int.
  */
 int write_number(int is_negative, int ind, char buffer[],
@@ -28,8 +31,7 @@ return (write_num(ind, buffer, flags, width, precision,
 }
 /**
  * write_chars - print string
- * @is_negative: List
- * @ind: c
+ * @c: character
  * @buffer: buffer
  * @flags: flags
  * @width: width

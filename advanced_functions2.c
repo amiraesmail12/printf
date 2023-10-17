@@ -109,7 +109,7 @@ int print_non_printable(va_list types, char buffer[],
 int i = 0, offset = 0;
 char *str = va_arg(types, char *);
 
-UNUSED(flags);	
+UNUSED(flags);
 UNUSED(width);
 UNUSED(precision);
 UNUSED(size);
@@ -125,7 +125,7 @@ while (str[i] != '\0')
 		offset += append_hexa_code(str[i], buffer, i + offset);
 	i++;
 }
-buffer[i + offset] = '\0';	
+buffer[i + offset] = '\0';
 return (write(1, buffer, i + offset));
 }
 
